@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
 
-class Products {
-}
-
-interface Product {
-}
+import {Product} from "../../models/product";
 
 /*
   Generated class for the RestProvider provider.
@@ -16,19 +14,20 @@ interface Product {
 */
 @Injectable()
 export class RestProvider {
-  private callbackfn: ;
+
+  baseUrl:string = "http://localhost:3000";
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
   }
 
-  public getProducts():Observable<Products[]> {
-    return this.http.get(url: this.baseUrl+"/products")
+  public getProducts():Observable<Product[]> {
+    return this.http.get(this.baseUrl+"/products")
       .map((products:Product[]) => {
-        return products.map(this.callbackfn:product => {
-          return new Products(product)
-      })
-    }).catch(err =>  Observable.empty<Products[]>());
+        return products.map(product => {
+          return new Product(product)
+        })
+      }).catch(err => Observable.empty<Product[]>());
   }
 
 }

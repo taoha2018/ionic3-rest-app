@@ -6,7 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {HttpClientModule} from "@angular/common/http";
 import { RestProvider } from '../providers/rest/rest';
+import {OrderModule} from "ngx-order-pipe";
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { RestProvider } from '../providers/rest/rest';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    OrderModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
