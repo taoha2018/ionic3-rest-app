@@ -1,0 +1,2 @@
+//model class
+export

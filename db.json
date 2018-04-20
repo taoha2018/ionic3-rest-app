@@ -1,0 +1,16 @@
+{
+  "projects":[
+    {
+      "id":1,
+      "name":"computer",
+      "cost":"200",
+      "quantity":"20"
+    },
+    {
+      "id":2,
+      "name":"car",
+      "cost":"2000",
+      "quantity":"10"
+    }
+  ]
+}
